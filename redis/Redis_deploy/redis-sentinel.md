@@ -209,7 +209,7 @@ daemonize yes
 pidfile /var/run/redis-6381.pid
 logfile "6381.log"
 dir "/opt/soft/redis/data/"
-slaveof 127.0.0.1 6381
+slaveof 127.0.0.1 6379
 ```
 
 ```shell
