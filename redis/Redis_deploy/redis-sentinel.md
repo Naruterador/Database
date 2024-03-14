@@ -200,7 +200,7 @@ daemonize yes
 pidfile /var/run/redis-6380.pid
 logfile "6380.log"
 dir "/opt/soft/redis/data/"
-slaveof 127.0.0.1 6379
+replicaof 127.0.0.1 6379
 ```
 ```shell
 #从节点2配置
@@ -209,7 +209,7 @@ daemonize yes
 pidfile /var/run/redis-6381.pid
 logfile "6381.log"
 dir "/opt/soft/redis/data/"
-slaveof 127.0.0.1 6379
+replicaof 127.0.0.1 6379
 ```
 
 ```shell
@@ -250,6 +250,13 @@ sentinel failover-timeout mymaster 180000
 #如果被监控的主机redis服务器有密码的话，还有在sentinel.conf文件中加上认证密码
 # sentinel auth-pass 被监控的服务器的名称（可以随意起） password
 sentinel auth-pass mymaster 123456
+
+#redius中，默认的账号为default,密码为空，所以上面也可以配置为:
+port 26379
+sentinel monitor default 127.0.0.1 6379 2
+sentinel down-after-milliseconds default 30000
+sentinel parallel-syncs default 1
+sentinel failover-timeout default 180000
 ```
 
 - 哨兵1配置:
