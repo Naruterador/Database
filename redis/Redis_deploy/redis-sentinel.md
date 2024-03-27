@@ -187,7 +187,7 @@ port 6379
 daemonize yes
 pidfile /var/run/redis-6379.pid
 logfile "6379.log"
-dir "/opt/soft/redis/data/"
+dir "/opt/soft/redis/data/" #可以不改
 ```
 
 - 从节点配置:
@@ -199,7 +199,7 @@ port 6380
 daemonize yes
 pidfile /var/run/redis-6380.pid
 logfile "6380.log"
-dir "/opt/soft/redis/data/"
+dir "/opt/soft/redis/data/" #可以不改
 replicaof 127.0.0.1 6379
 ```
 ```shell
@@ -208,7 +208,7 @@ port 6381
 daemonize yes
 pidfile /var/run/redis-6381.pid
 logfile "6381.log"
-dir "/opt/soft/redis/data/"
+dir "/opt/soft/redis/data/" #可以不改
 replicaof 127.0.0.1 6379
 ```
 
