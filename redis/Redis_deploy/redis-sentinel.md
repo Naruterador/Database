@@ -263,6 +263,7 @@ sentinel failover-timeout default 180000
 
 ```shell
 port 26379
+daemonize yes
 sentinel monitor mymaster 127.0.0.1 6379 2
 sentinel down-after-milliseconds mymaster 30000
 sentinel parallel-syncs mymaster 1
@@ -271,6 +272,7 @@ sentinel failover-timeout mymaster 180000
 - 哨兵2配置:
 ```shell
 port 26380
+daemonize yes
 sentinel monitor mymaster 127.0.0.1 6379 2
 sentinel down-after-milliseconds mymaster 30000
 sentinel parallel-syncs mymaster 1
@@ -278,7 +280,8 @@ sentinel failover-timeout mymaster 180000
 ```
 - 哨兵3配置:
 ```shell
-port 263781
+port 26381
+daemonize yes
 sentinel monitor mymaster 127.0.0.1 6379 2
 sentinel down-after-milliseconds mymaster 30000
 sentinel parallel-syncs mymaster 1
